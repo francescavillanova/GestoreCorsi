@@ -43,7 +43,7 @@ public class StudenteDAO {
 	public List<Divisione> getDivisioneStudenti(String codins) { //ritorna una lista perchè ritorna una sola informazione e non avrebbe senso fare una mappa 
 		String sql="SELECT s.CDS, COUNT(*) AS n "
 				+ "FROM studente s, iscrizione i "
-				+ "WHERE s.matricola=i.matricola AND i.codins='01KSUPG' AND s.CDS<>'' "
+				+ "WHERE s.matricola=i.matricola AND i.codins=? AND s.CDS<>'' "
 				+ "GROUP BY s.CDS";
 		List<Divisione> result=new ArrayList<Divisione>();
 		try {
